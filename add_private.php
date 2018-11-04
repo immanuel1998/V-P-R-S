@@ -1,5 +1,7 @@
 	<?php 
-	require_once "config.php"; 
+		include 'inc/needlogin.php';
+		include 'inc/header.php';
+		require_once "db/config.php";
 
 	//Define Variables / Initialize with 0 values
 	$PlateNo = $Driver = $PhoneNo = $Model = $Color = $BusinessAdd = $PermitNo = $Remarks = "";
@@ -93,7 +95,7 @@
 			            if($stmt->execute()){
 							// Records created successfully. Redirect to landing page
 							echo "Successfully Added!";
-			                header("location: h-private.php");
+			                echo "<script>window.location.href='h-private';</script>";
 			                exit();
 			            } else{
 			                echo "Something went wrong. Please try again later.";
@@ -109,7 +111,6 @@
 			}
 	?>
 
-<?php include 'inc/header.php'; ?>
 	<main class="mdl-layout__content mdl-color--grey-100">
 		
         <div class="mdl-grid">

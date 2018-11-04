@@ -1,4 +1,5 @@
-<?php include 'inc/header.php'; ?>
+    <?php include 'inc/needlogin.php'; ?>
+    <?php include 'inc/header.php'; ?>
 	 <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid">
 	
@@ -21,7 +22,7 @@
 			</style>
 					<?php
                     // Include config file
-                    require_once "config.php";
+                    require_once "db/config.php";
                     
                 
                     $ID = 1;
@@ -73,10 +74,10 @@
                                         echo "<td class='mdl-data-table__cell--non-numeric'>" . $row['Remarks'] . "</td>";
 
                                         echo "<td>";
-                                            echo "<a href='edit_official.php?ID=". $row['ID'] ."' title='Edit Record' data-toggle='tooltip'><img src='images/edit.png' width='25'></a>";
+                                            echo "<a href='edit_official.php?ID=". $row['ID'] ."' title='Edit Record' data-toggle='tooltip'><img src='assets/images/edit.png' width='25'></a>";
                                             echo ' ';
 
-                                            echo "<a href='delete_official.php?ID=". $row['ID'] ."' title='Delete Record' data-toggle='tooltip'><img src='images/delete.png' width='25'></a>";
+                                            echo "<a href='delete_official.php?ID=". $row['ID'] ."' title='Delete Record' data-toggle='tooltip'><img src='assets/images/delete.png' width='25'></a>";
                           
                                         echo "</td>";
                                       
@@ -104,11 +105,12 @@
 			  
 			  
 			  <div class="mdl-card__actions mdl-card--border">
-			    <a href="add_official.php">
-			    	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="background-color: #e74c3c; color: white;">
+			    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="background-color: #e74c3c; color: white;" href="add_official.php">
 					  Register New Vehicle
-					</button>
 				</a>
+                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" style="color: white;" href="TCPDF/User/official_vehicles.php">
+                      Get PDF
+                </a>
 			  </div>
 			 
 			</div>

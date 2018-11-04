@@ -1,5 +1,7 @@
 	<?php 
-	require_once "config.php"; 
+		include 'inc/needlogin.php';
+		include 'inc/header.php';
+		require_once "db/config.php"; 
 
 	//Define Variables / Initialize with 0 values
 	$PlateNo = $Driver = $EmployeeID = $Position = $Division = $PhoneNo = $Model = $Color = $PermitNo = $Remarks = "";
@@ -109,8 +111,8 @@
 			            // Attempt to execute the prepared statement
 			            if($stmt->execute()){
 							// Records created successfully. Redirect to landing page
-							echo "Successfully Added!";
-			                header("location: h-employee.php");
+							echo "<script>alert(Successfully Added!)</script>";
+			                echo "<script>window.location.href='h-employee';</script>";
 			                exit();
 			            } else{
 			                echo "Something went wrong. Please try again later.";
@@ -125,7 +127,6 @@
 			    $dbconn->close();
 			}
 	?>
-<?php include 'inc/header.php'; ?>
 	<main class="mdl-layout__content mdl-color--grey-100">
 		
         <div class="mdl-grid">
@@ -202,14 +203,16 @@
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       
       <div class="div" >
-	  <div  class="div_textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label" <?php echo (!empty($PlateNo_err)) ? 'has-error' : ''; ?>"> 
+	  	<div  class="div_textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label" <?php echo (!empty($PlateNo_err)) ? 'has-error' : ''; ?>"> 
 	    <input id="textfield" class="mdl-textfield__input" type="text" name="PlateNo" value="<?php echo $PlateNo; ?>" id="first">
-	    <label class="form-label mdl-textfield__label">Plate No. <span style="color: red;"><?php echo $PlateNo_err;?></span>
+	    <label class="form-label mdl-textfield__label">Plate No. 
+	    <span style="color: red;"><?php echo $PlateNo_err;?></span>
 		</label>
 	   </div>
 	    <div  class="div_textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label" <?php echo (!empty($Driver_err)) ? 'has-error' : ''; ?>">
 	    <input id="textfield" class="mdl-textfield__input" type="text" name="Driver" value="<?php echo $Driver; ?>" id="last">
-	    <label class="form-label mdl-textfield__label">Driver <span style="color: red;"><?php echo $Driver_err;?></span>
+	    <label class="form-label mdl-textfield__label">Driver 
+	    <span style="color: red;"><?php echo $Driver_err;?></span>
 	    </label>
 	  </div>
       </div>

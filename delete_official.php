@@ -1,8 +1,10 @@
+<?php include 'inc/needlogin.php'; ?>
+<?php include 'inc/header.php'; ?>
 <?php
 // Process delete operation after confirmation
 if(isset($_POST["ID"]) && !empty($_POST["ID"])){
     // Include config file
-    require_once "config.php";
+    require_once "db/config.php";
     
     // Prepare a delete statement
     $sql = "DELETE FROM official_vehicles WHERE ID = ?";
@@ -17,7 +19,7 @@ if(isset($_POST["ID"]) && !empty($_POST["ID"])){
         // Attempt to execute the prepared statement
         if($stmt->execute()){
             // Records deleted successfully. Redirect to landing page
-            header("location: h-official.php");
+            echo "<script>window.location.href='h-employee';</script>";
             exit();
         } else{
             echo "Oops! Something went wrong. Please try again later.";
@@ -38,7 +40,6 @@ if(isset($_POST["ID"]) && !empty($_POST["ID"])){
     }
 }
 ?>
-<?php include 'inc/header.php'; ?>
 	<main class="mdl-layout__content mdl-color--grey-100">
 		<!-- Square card -->
 		<style>

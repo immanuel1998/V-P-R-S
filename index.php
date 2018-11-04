@@ -1,4 +1,5 @@
-    <?php include 'inc/header.php'; ?>
+     <?php include 'inc/needlogin.php'; ?>
+     <?php include 'inc/header.php'; ?>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
             <!-- Wide card with share menu button -->
@@ -15,6 +16,7 @@
           .demo-card-wide > .mdl-card__menu {
             color: #fff;
           }
+
           </style>
                       
             <div class="mdl-grid">
@@ -25,7 +27,7 @@
                   </div>
                   <div class="mdl-card__supporting-text">
                     <?php
-                            require_once "config.php";
+                            require_once "db/config.php";
                             $query1      =   "SELECT COUNT(*) FROM official_vehicles";
                             $result1     =   mysqli_query($dbconn,$query1);
                             $rows        =   mysqli_fetch_row($result1);
@@ -33,7 +35,7 @@
                     ?>
                   </div>
                   <div class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="h-official.php" style=" background-color:#e74c3c;color: white;">
+                    <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" href="h-official" style=" background-color:#e74c3c;color: white;">
                       View Record
                     </a>
                   </div>
@@ -47,7 +49,7 @@
                   </div>
                   <div class="mdl-card__supporting-text">
                     <?php
-                            require_once "config.php";
+                            require_once "db/config.php";
                             $query1      =   "SELECT COUNT(*) FROM employee_vehicles";
                             $result1     =   mysqli_query($dbconn,$query1);
                             $rows        =   mysqli_fetch_row($result1);
@@ -55,7 +57,7 @@
                     ?>
                   </div>
                   <div class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="h-employee.php" style=" background-color:#2ecc71;color: white;">
+                    <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" href="h-employee" style=" background-color:#2ecc71;color: white;">
                       View Record
                     </a>
                   </div>
@@ -69,7 +71,7 @@
                   </div>
                   <div class="mdl-card__supporting-text">
                     <?php
-                            require_once "config.php";
+                            require_once "db/config.php";
                             $query1      =   "SELECT COUNT(*) FROM private_vehicles";
                             $result1     =   mysqli_query($dbconn,$query1);
                             $rows        =   mysqli_fetch_row($result1);
@@ -77,7 +79,7 @@
                     ?>
                   </div>
                   <div class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="h-private.php" style=" background-color:#3498db;color: white;">
+                    <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" href="h-private" style=" background-color:#3498db;color: white;">
                       View Record
                     </a>
                   </div>

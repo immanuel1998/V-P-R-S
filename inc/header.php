@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <style>
     #view-source {
       position: fixed;
@@ -45,7 +45,7 @@
       margin-bottom: 40px;
       z-index: 900;
     }
-
+    
     
     </style>
   </head>
@@ -72,9 +72,37 @@
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" style="font-weight: bold;" href="index.php" disabled>H O M E</a>
           <hr>
-          <a class="mdl-navigation__link" href="h-official.php" style="color:#e74c3c;font-weight: bold;">O F F I C I A L</a>
-          <a class="mdl-navigation__link" href="h-employee.php" style="color:#2ecc71;font-weight: bold;">E M P L O Y E E</a>
-          <a class="mdl-navigation__link" href="h-private.php"  style="color:#3498db;font-weight: bold;">P R I V A T E</a>
+                  
+          <a class="mdl-navigation__link" href="h-official" style="color:#e74c3c;font-weight: bold;">O F F I C I A L<span class="mdl-badge" data-badge="
+                            <?php           
+                            require_once "db/config.php";
+                            $query              =   "SELECT COUNT(*) FROM official_vehicles";
+                            $result             =   mysqli_query($dbconn,$query);
+                            $rows_official      =   mysqli_fetch_row($result);
+                            echo $rows_official[0];
+                            ?>"></span></a>
+
+                           
+          <a class="mdl-navigation__link" href="h-employee" style="color:#2ecc71;font-weight: bold;">E M P L O Y E E<span class="mdl-badge" data-badge="
+                            <?php
+                            require_once "db/config.php";
+                            $query              =   "SELECT COUNT(*) FROM employee_vehicles";
+                            $result             =   mysqli_query($dbconn,$query);
+                            $rows_employee      =   mysqli_fetch_row($result);
+                            echo $rows_employee[0];
+                           ?>"></span></a>
+                  
+          <a class="mdl-navigation__link" href="h-private"  style="color:#3498db;font-weight: bold;">P R I V A T E<span class="mdl-badge" data-badge="
+                            <?php
+                            require_once "db/config.php";
+                            $query              =   "SELECT COUNT(*) FROM private_vehicles";
+                            $result             =   mysqli_query($dbconn,$query);
+                            $rows_private       =   mysqli_fetch_row($result);
+                            echo $rows_private[0];
+                              
+                            ?>"></span></a>
+          <hr>
+          <a class="mdl-navigation__link" href="logoutconfirmation.php"  style="font-weight: bold;">L O G O U T</a> 
         </nav>
      
       </div>
